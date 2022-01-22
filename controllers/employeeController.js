@@ -1,9 +1,9 @@
-// employeeController.js
 Employee = require('../models/employeeModel');
 
 // Handle index actions
 exports.index = function (req, res) {
     Employee.get(function (err, employees) {
+        console.log("employees:", employees.length)
         if (err) {
             res.json({
                 status: "error",
@@ -20,7 +20,7 @@ exports.index = function (req, res) {
 
 // Handle create employee actions
 exports.new = function (req, res) {
-    console.log("req.body:", req.body)
+    console.log("req.body:", res)
     var employee = new Employee();
     employee.name = req.body.name ? req.body.name : employee.name;
     employee.days_worked = req.body.days_worked;
