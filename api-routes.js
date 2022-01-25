@@ -10,13 +10,16 @@ router.get('/', function (req, res) {
 var employeeController = require('./controllers/employeeController');
 var cafeController = require('./controllers/cafeController');
 
+
+router.route('/cafe/')
+    .get(cafeController.index)
+    .post(cafeController.new);
+
 router.route('/cafe/employees')
     .get(employeeController.index)
     .post(employeeController.new);
 router.route('/cafe/employees/:employee_id')
     .get(employeeController.view)
-
-
 
 module.exports = router;
 
