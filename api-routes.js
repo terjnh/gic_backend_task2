@@ -14,23 +14,16 @@ var cafeController = require('./controllers/cafeController');
 router.route('/cafe/')
     .get(cafeController.index)
     .post(cafeController.new);
+router.route('/cafes/location/:location')
+    .get(cafeController.view);
+// router.route('/cafes?location=:location')
+//     .get(cafeController.view);
 
-router.route('/cafe/employees')
+router.route('/cafes/employees')
     .get(employeeController.index)
+router.route('/cafe/employee')
     .post(employeeController.new);
-router.route('/cafe/employees/:employee_id')
+router.route('/cafe/employees/:name')
     .get(employeeController.view)
 
 module.exports = router;
-
-
-// Import contact controller
-// var contactController = require('./contactController');// Contact routes
-// router.route('/contacts')
-//     .get(contactController.index)
-//     .post(contactController.new); router.route('/contacts/:contact_id')
-//         .get(contactController.view)
-//         .patch(contactController.update)
-//         .put(contactController.update)
-//         .delete(contactController.delete);// Export API routes
-// module.exports = router;

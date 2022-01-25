@@ -36,3 +36,31 @@ exports.new = function (req, res) {
         });
     });
 }
+
+
+exports.view = function (req, res) {
+    console.log("req.params:", req.params)
+    // req.params = { location: 'east-coast-park' }
+    console.log("req.params.location:", req.params.location)
+
+    Cafe.find(req.params, function (err, result) {
+        console.log(result)
+        if (err) {
+            res.send(err);
+        }
+        for (const cafeObj of result) {
+            if (cafeObj.location === req.params.location) {
+                res.json({
+                    message: 'Cafe location details loaded',
+                    data: cafeObj
+                })
+            } else {
+                res.json({
+                    message: 'Cafe location not found',
+                    data: []
+                })
+            }
+        }
+
+    })
+};

@@ -25,6 +25,19 @@ https://docs.mongodb.com/compass/master/install/
 
 
 
+## Endpoints:
+- GET endpoint `/api/cafes/location/<location>`
+  - returns record based on cafe location, if invalid location is provided, empty list is returned
+- GET endpoint `/cafes/employees`
+  - returns all employees records
+- POST endpoint `/cafe`
+  - creates new cafe in database (schema: cafeModel.js)
+- POST endpoint `/cafe/employee`
+  - adds a new employee to the cafe
+
+
+
+
 
 
 
